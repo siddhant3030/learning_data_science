@@ -1,0 +1,5 @@
+query,category
+"SELECT * FROM users","SELECT"
+"INSERT INTO users (name, age) VALUES ('John Doe', 30)","INSERT"
+"UPDATE users SET age = age + 1 WHERE name = 'John Doe'","UPDATE"
+"DELETE FROM users WHERE name = 'John Doe'","DELETE"
