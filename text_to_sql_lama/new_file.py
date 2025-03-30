@@ -6,11 +6,6 @@ import lamini
 import logging
 import argparse
 
-# A simple helper function to combine system and user prompts.
-def make_llama_3_prompt(user, system):
-    # Returns a dictionary representing the prompt.
-    return {"system": system, "user": user}
-
 def main():
     parser = argparse.ArgumentParser(
         description="Generate an SQL query based on file input and a natural language query."
@@ -31,7 +26,7 @@ def main():
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    # Build a system prompt that uses the file content as context.
+    # Build the system prompt using the file content as context.
     system = (
         "You are an NBA analyst with 15 years of experience writing complex SQL queries.\n"
         "Consider the table defined in the schema provided below:\n\n"
@@ -40,11 +35,11 @@ def main():
         "Make sure the query ends with a semicolon."
     )
 
-    # Build the user prompt with the query.
+    # Build the user prompt with the question.
     user = f"Question: {args.query}\n"
 
-    # Create the complete prompt.
-    prompt = make_llama_3_prompt(user, system)
+    # Combine system and user into one prompt string.
+    prompt = system + "\n" + user
     logger.info("Created prompt for Lamini LLM.")
 
     # Create a Lamini LLM instance.

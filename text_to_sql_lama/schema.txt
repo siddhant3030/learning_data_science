@@ -1,0 +1,11 @@
+nba_roster (
+    id INTEGER PRIMARY KEY,
+    name TEXT,
+    team TEXT,
+    position TEXT,
+    age INTEGER,
+    salary TEXT,
+    college TEXT,
+    height TEXT,
+    weight TEXT
+)
